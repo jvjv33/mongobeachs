@@ -1,6 +1,7 @@
 # mongobeachs - Node.Js with MongoDB API CRUD Example
- A beachs CRUD API developed in MongoDB & Node.Js
 <img src="https://user-images.githubusercontent.com/19741953/79709068-97ff8780-8297-11ea-8b12-7f90e625a176.jpeg" alt="MongoDB & Node.js"/>
+
+A beachs CRUD API developed in MongoDB & Node.Js
 
 ## Requirements
 
