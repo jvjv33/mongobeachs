@@ -29,7 +29,7 @@ router.get('/search/:id', async (req, res) => {
             res.send(data);
         });
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         res.status(400).send({ error: 'Failed to get beach.'});
     }
 });
@@ -41,7 +41,7 @@ router.post('/register', async (req, res) => {
         const beach_create = await beach.create(req.body);
         return res.send({beach_create});
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         return res.status(400).send({ error: 'Failed to register beach' });
     }
 });
@@ -51,11 +51,11 @@ router.put('/update/:id', async (req, res) => {
         const beach_id = await beach.findById(req.params.id);
         if(beach_id == null) return res.status(400).send({ error: 'Beach not exists!'});
         await beach.findByIdAndUpdate(req.params.id, req.body, { useFindAndModify: false }, function (error, data) {
-            if(error) console.log('Error:', error);
-            if(data) res.send(data);
+            if(error) console.log('Error:', error.message);
+            if(data) res.send('Beach updated!');
         });
     } catch (error) {
-        console.log(error);
+        console.log(error.message);
         return res.status(500).send({ error: 'Failed to update beach.'})
     }
 });
@@ -65,7 +65,7 @@ router.delete('/delete/:id', async (req, res) => {
         const beach_id = await beach.findById(req.params.id);
         if(beach_id == null) return res.status(400).send({ error: 'Beach not exists!'});
         await beach.findByIdAndDelete(req.params.id, function (error, data) {
-            if(error) console.log('Error:', error);
+            if(error) console.log('Error:', error.message);
             if(data) res.send(data);
         });
     } catch (error) {
